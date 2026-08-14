@@ -1,0 +1,79 @@
+ПОШАГОВО: GITHUB PAGES + TIKTOK
+================================
+
+A. Подготовка файлов
+1. Откройте index.html, privacy.html и terms.html.
+2. Замените CHANGE_ME_EMAIL на реальный контактный email.
+3. Ничего из основной папки CreatorForge сюда не добавляйте.
+
+B. Создание GitHub-репозитория
+1. GitHub -> New repository.
+2. Repository name: creatorforge-site (или другое понятное имя).
+3. Для GitHub Free выберите Public, чтобы GitHub Pages работал без платного плана.
+4. Create repository.
+5. Upload files -> загрузите всё содержимое этой папки, сохраняя папку assets.
+6. Commit changes.
+
+C. Включение GitHub Pages
+1. Репозиторий -> Settings.
+2. Слева Pages.
+3. Build and deployment -> Source -> Deploy from a branch.
+4. Branch: main.
+5. Folder: /(root).
+6. Save.
+7. Подождите, пока появится опубликованный URL.
+
+D. Проверка сайта
+Откройте:
+- главную страницу;
+- /privacy.html;
+- /terms.html.
+Убедитесь, что везде нет CHANGE_ME_EMAIL и все страницы открываются без входа в GitHub.
+
+E. TikTok App Details
+Recommended values:
+App name: CreatorForge
+Description: Creator tool for creating, editing, scheduling and publishing short-form videos to connected TikTok accounts.
+Platform: Desktop
+Web/Desktop URL: публичный URL GitHub Pages главной страницы
+Terms of Service URL: .../terms.html
+Privacy Policy URL: .../privacy.html
+
+F. Login Kit (Desktop)
+Redirect URI для локального CreatorForge:
+http://127.0.0.1:8080/api/tiktok/oauth/callback
+
+Если CreatorForge в вашей версии использует localhost вместо 127.0.0.1, зарегистрируйте также:
+http://localhost:8080/api/tiktok/oauth/callback
+
+G. Products / Scopes
+Для текущей архитектуры:
+- Login Kit
+- Display API (если используете аналитику TikTok)
+- Content Posting API
+
+Scopes:
+- user.info.basic
+- video.list (аналитика / список собственных видео)
+- video.publish (Direct Post)
+
+H. URL Properties
+Перед Production review TikTok требует подтвердить URL из конфигурации.
+1. TikTok Developer Portal -> URL properties.
+2. Production -> Verify properties.
+3. Для GitHub Pages удобнее URL prefix.
+4. Укажите точный URL/префикс, который просит TikTok.
+5. TikTok предложит скачать signature file.
+6. Загрузите этот файл в репозиторий в требуемое место.
+7. Commit changes.
+8. Дождитесь deployment GitHub Pages.
+9. Проверьте, что signature file открывается по прямой ссылке.
+10. Вернитесь в TikTok -> Verify.
+
+I. App Review
+1. В App review объясните назначение каждого Product/Scope.
+2. Подготовьте demo video полного flow.
+3. Save.
+4. Submit for review.
+
+Важно: GitHub Pages публикует сайт в интернет. Никаких секретов и исходного кода CreatorForge в этот репозиторий не помещать.
